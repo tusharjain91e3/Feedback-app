@@ -1,104 +1,116 @@
-# 🕵️‍♂️ MySertyApp
+# 🕵️‍♂️ MysteryApp
 
-**MySertyApp** is a modern web application that allows users to receive **anonymous messages** through a unique link. Built with **Next.js**, **Tailwind CSS**, and **MongoDB**, it offers a seamless sign-up/sign-in system, a personal dashboard, and a clean user experience.
-
----
-
-## 🚀 Features
-
-- 🔐 **Authentication** — Sign up, sign in securely via `next-auth`
-- ✉️ **Anonymous Messaging** — Anyone with your unique link can send you a message
-- 🧾 **Dashboard** — Authenticated users can view received messages
-- 🌐 **Frontend** — Clean public-facing home page with login/signup
-- 📬 **Email Support** — Optional email functionalities powered by `resend` and `react-email`
+[![Next.js](https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
+[![MongoDB](https://img.shields.io/badge/mongodb-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Tailwind CSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 ---
 
-## 🛠️ Tech Stack
+## 📖 Project Overview
 
-| Category           | Tools Used |
-|-------------------|------------|
-| Frontend          | Next.js 15, React 19, Tailwind CSS |
-| Backend           | MongoDB, Mongoose |
-| Authentication    | NextAuth.js |
-| Validation        | React Hook Form, Zod |
-| Utilities         | Axios, Day.js, clsx, tailwind-merge |
-| UI Enhancements   | Lucide Icons, Embla Carousel |
-| Email & Toast     | Resend, react-email, Radix UI, Sonner |
-| Type Checking     | TypeScript |
-| Linting & Formatting | ESLint |
+**MysteryApp** is a modern, secure Next.js application that allows users to:
+
+- **Sign up and log in securely** using NextAuth.
+- **Receive anonymous messages** via a unique link.
+- **View all anonymous messages** on a personalized dashboard.
+- Access a **clean and responsive UI** powered by Tailwind CSS.
+
+The goal is to provide an intuitive platform for anonymous feedback or messaging while ensuring user data security.
 
 ---
 
-## 📁 Project Structure
+## ⚙️ Features
 
-mysertyapp/
-├── public/ # Static assets
-├── emails/ # Email templates
-├── src/
-│ ├── app/ # Routes and views
-│ ├── components/ # Reusable UI components
-│ ├── lib/ # Utilities and server logic
-│ ├── models/ # Mongoose schemas
-│ └── styles/ # Global CSS
-├── .env.sample # Sample environment config
-├── package.json
-├── next.config.js
-├── tailwind.config.mjs
-└── tsconfig.json
-
-yaml
-Copy
-Edit
+| Feature                 | Description                                            |
+|-------------------------|--------------------------------------------------------|
+| User Authentication     | Secure sign-up/sign-in with NextAuth                   |
+| Anonymous Messaging     | Send messages anonymously through a sharable link      |
+| Dashboard               | View and manage received anonymous messages            |
+| Responsive UI           | Mobile-friendly design with Tailwind CSS                |
+| Database                | MongoDB & Mongoose for storing users and messages       |
+| Email Integration       | Send email notifications using react-email and resend   |
+| Form Validation         | Robust input validation using react-hook-form and zod   |
 
 ---
 
-## 🔧 Getting Started
+## 🛠️ Tech Stack & Dependencies
 
-1. **Clone the repository**
+- **Framework:** Next.js 15.3.0
+- **UI & Styling:** React, Tailwind CSS 4, Radix UI, lucide-react
+- **Authentication:** next-auth
+- **Database:** MongoDB, Mongoose
+- **Form Handling:** react-hook-form, zod
+- **Email:** react-email, resend
+- **Utilities:** axios, bcryptjs, dayjs, use-debounce, usehooks-ts
+- **Dev Tools:** TypeScript, ESLint, PostCSS
 
-```bash
-git clone https://github.com/tusharjain91e3/Feedback-app.git
-cd Feedback-app
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm or yarn
+- MongoDB cluster or local instance
+- Email service API key (for sending emails)
+
+### Installation
+
+1. **Clone the repository**  
+   ```
+   git clone https://github.com/tusharjain91e3/Feedback-app.git
+   cd Feedback-app
 Install dependencies
 
-bash
-Copy
-Edit
 npm install
-Configure environment
+# or
+yarn install
+Setup environment variables
 
-bash
+Duplicate .env.sample and rename to .env
+
+Fill in your MongoDB connection string, NextAuth secret, and email service API keys
+
+Example .env contents:
+
+ini
 Copy
 Edit
-cp .env.sample .env
-# Then fill in the required values in the .env file
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_nextauth_secret
+EMAIL_API_KEY=your_email_service_api_key
 Run the development server
 
-bash
-Copy
-Edit
 npm run dev
-⚙️ Required Environment Variables
-env
-Copy
-Edit
-MONGODB_URI=your_mongodb_connection
-NEXTAUTH_SECRET=your_secret
-NEXTAUTH_URL=http://localhost:3000
-EMAIL_FROM=your_email@example.com
-RESEND_API_KEY=your_resend_key
-📌 Todo / Future Enhancements
-✅ Add message reply feature
+# or
+yarn dev
+Open your browser and go to http://localhost:3000
 
-✅ Improve spam protection
+🧑‍💻 Usage
+Create an account or log in on the homepage.
 
-✅ Add email notifications
+Get your unique anonymous message link from the dashboard.
 
-✅ Build public profile pages
+Share the link with others to receive anonymous messages.
 
-✅ Add message filters & search
+View and manage received messages in your dashboard.
+
+🗂️ Project Structure
+.
+├── src/              # Main source code (pages, components)
+├── emails/           # Email templates and components
+├── public/           # Static assets (images, favicon)
+├── .env.sample       # Sample environment variables
+├── package.json      # Project metadata & dependencies
+└── README.md         # Project documentation
+🤝 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests to improve MysteryApp.
 
 📄 License
-MIT License
-© 2025 Tushar Jain
+This project is private and intended for portfolio and learning purposes.
+
+📫 Contact
+Built with ❤️ by Tushar Jain
+Email: tusharjainmandoth@gmail.com
