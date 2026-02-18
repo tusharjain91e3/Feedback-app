@@ -24,7 +24,7 @@ function UserDashboard() {
   const { toast } = useToast();
 
   const handleDeleteMessage = (messageId: string) => {
-    setMessages(messages.filter((message) => message._id !== messageId));
+    setMessages(messages.filter((message) => String(message._id) !== messageId));
   };
 
   const { data: session } = useSession();
@@ -35,6 +35,7 @@ function UserDashboard() {
 
   const { register, watch, setValue } = form;
   const acceptMessages = watch('acceptMessages');
+  const isGuestMode = !session || !session.user;
 
   const fetchAcceptMessages = useCallback(async () => {
     setIsSwitchLoading(true);
@@ -116,11 +117,7 @@ function UserDashboard() {
     }
   };
 
-  if (!session || !session.user) {
-    return <div></div>;
-  }
-
-  const { username } = session.user as User;
+  const username = (session?.user as User | undefined)?.username ?? 'guest';
 
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
   const profileUrl = `${baseUrl}/u/${username}`;
@@ -155,7 +152,7 @@ function UserDashboard() {
           {...register('acceptMessages')}
           checked={acceptMessages}
           onCheckedChange={handleSwitchChange}
-          disabled={isSwitchLoading}
+          disabled={isSwitchLoading || isGuestMode}
         />
         <span className="ml-2">
           Accept Messages: {acceptMessages ? 'On' : 'Off'}
@@ -170,6 +167,7 @@ function UserDashboard() {
           e.preventDefault();
           fetchMessages(true);
         }}
+        disabled={isGuestMode}
       >
         {isLoading ? (
           <Loader2 className="h-4 w-4 animate-spin" />
